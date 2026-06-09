@@ -44,6 +44,44 @@ frontend and a FastAPI backend.
 The hello-world endpoint is available at `http://localhost:8000/`. Interactive
 API documentation is available at `http://localhost:8000/docs`.
 
+### Authentication Endpoints
+
+- `POST /auth/signup` creates an email/password user.
+- `POST /auth/login` returns the user's access and refresh tokens.
+- `GET /auth/me` demonstrates a protected route.
+
+Send the login access token to protected routes:
+
+```text
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Other routes can use the same dependency:
+
+```python
+from typing import Annotated
+
+from fastapi import Depends
+from supabase_auth.types import User
+
+from app.dependencies.auth import get_current_user
+
+
+def protected_route(
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    return {"user_id": current_user.id}
+```
+
+### Workout Logging Endpoints
+
+All workout endpoints require an access token in the `Authorization` header.
+
+- `POST /sessions` starts a workout session.
+- `POST /sessions/{session_id}/sets` logs a completed set.
+- `GET /sessions/last?exercise_name=Bench%20Press` returns the user's most
+  recently completed matching set.
+
 ## Frontend Setup
 
 1. Install dependencies:

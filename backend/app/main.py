@@ -21,7 +21,7 @@ app.add_middleware(
 
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(routines.router, prefix="/routines", tags=["routines"])
-app.include_router(workouts.router, prefix="/workouts", tags=["workouts"])
+app.include_router(workouts.router, prefix="/sessions", tags=["sessions"])
 app.include_router(reminders.router, prefix="/reminders", tags=["reminders"])
 
 
