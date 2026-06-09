@@ -6,6 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_env: str = "development"
     supabase_url: str | None = None
+    supabase_publishable_key: str | None = None
     supabase_service_role_key: str | None = None
     frontend_origin: str = "http://localhost:8081"
 
