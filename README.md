@@ -76,3 +76,22 @@ to launch the app on a device or simulator.
 - Frontend variables must use Expo's `EXPO_PUBLIC_` prefix.
 - Never place the Supabase service-role key in the frontend.
 - The backend service-role key must remain server-side and must not be committed.
+
+## Database Setup
+
+The initial database schema, indexes, Auth user trigger, and row-level security
+policies are in:
+
+```text
+supabase/migrations/202606090001_initial_schema.sql
+```
+
+Apply it with the Supabase CLI:
+
+```bash
+supabase link --project-ref YOUR_PROJECT_REF
+supabase db push
+```
+
+Alternatively, run the migration in the Supabase SQL editor. Weekdays use
+`0` through `6`, where `0` is Sunday.
