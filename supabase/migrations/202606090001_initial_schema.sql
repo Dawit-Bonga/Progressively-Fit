@@ -48,6 +48,7 @@ create table public.routine_exercises (
     check (char_length(trim(exercise_name)) between 1 and 150),
   sets smallint not null check (sets > 0),
   reps smallint not null check (reps > 0),
+  target_weight numeric(8, 2) not null default 0 check (target_weight >= 0),
   exercise_order smallint not null check (exercise_order >= 0),
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now()),

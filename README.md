@@ -117,11 +117,11 @@ to launch the app on a device or simulator.
 
 ## Database Setup
 
-The initial database schema, indexes, Auth user trigger, and row-level security
-policies are in:
+Database schema changes, indexes, Auth triggers, and row-level security
+policies are stored in:
 
 ```text
-supabase/migrations/202606090001_initial_schema.sql
+supabase/migrations/
 ```
 
 Apply it with the Supabase CLI:
@@ -133,3 +133,6 @@ supabase db push
 
 Alternatively, run the migration in the Supabase SQL editor. Weekdays use
 `0` through `6`, where `0` is Sunday.
+
+If the initial schema was already applied, also run
+`202606090002_add_routine_exercise_weight.sql` to add saved target weights.
