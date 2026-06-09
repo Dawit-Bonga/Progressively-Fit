@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Progressively Fit",
+    "slug": "progressively-fit",
+    "scheme": "progressivelyfit",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
